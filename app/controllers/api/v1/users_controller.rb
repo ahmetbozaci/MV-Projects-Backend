@@ -1,4 +1,20 @@
 class Api::V1::UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+
+    if !@users.empty?
+      render json: {
+        users: @users, 
+        status: 200
+      }
+    else
+      render json: {
+        status: 204,
+        errors: 'no users found'
+      }
+    end
+  end
 
   def create
     @user = User.new(user_params)
