@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :projects
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create, :index]
+      resources :users, only: [:create, :index] do
+        resources :projects, only: [:create, :index, :show]
+      end
     end
   end
 end
