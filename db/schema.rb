@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_025945) do
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
+    t.string "name"
     t.string "repo_link"
     t.string "live_link"
     t.string "picture"
