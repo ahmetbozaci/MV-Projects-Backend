@@ -1,9 +1,9 @@
 class Api::V1::ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show ]
+  before_action :set_project, only: %i[show]
 
   def index
     @projects = Project.all
-    render json: {projects: @projects, status: 200}
+    render json: { projects: @projects, status: 200 }
   end
 
   def show
@@ -15,14 +15,14 @@ class Api::V1::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      render json: {status: 200, message: 'Project created succesfully', project: @project}
+      render json: { status: 200, message: 'Project created succesfully', project: @project }
     else
-      render json: {status: 204,  errors: @project.errors.full_messages}
+      render json: { status: 204, errors: @project.errors.full_messages }
     end
   end
 
   private
-  
+
   def set_project
     @project = Project.find(params[:id])
   end
