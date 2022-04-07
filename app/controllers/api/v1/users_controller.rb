@@ -22,18 +22,18 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: {
         status: :created,
-        user: @user
+        user: @user,
       }
     else
       render json: {
         status: 500,
-        errors: @user.errors.full_messages
+        errors: @user.errors.full_messages,
       }
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:name)
+      params.permit(:name)
     end
 end

@@ -15,7 +15,7 @@ class Api::V1::ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      render json: {status: 200, message: 'Project created succesfully'}
+      render json: {status: 200, message: 'Project created succesfully', project: @project}
     else
       render json: {status: 204,  errors: @project.errors.full_messages}
     end
@@ -28,6 +28,6 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:repo_link, :live_link, :picture, :description, :user_id)
+    params.permit(:repo_link, :live_link, :picture, :description, :user_id)
   end
 end
