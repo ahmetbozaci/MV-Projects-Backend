@@ -8,10 +8,7 @@ class Api::V1::UsersController < ApplicationController
         errors: 'no users found'
       }
     else
-      render json: {
-        users: @users,
-        status: 200
-      }
+      render json: @users
     end
   end
 
@@ -19,10 +16,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: {
-        status: :created,
-        user: @user
-      }
+      render json: @user
     else
       render json: {
         status: 500,

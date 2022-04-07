@@ -3,19 +3,19 @@ class Api::V1::ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    render json: { projects: @projects, status: 200 }
+    render json: @projects
   end
 
   def show
     @user = User.find(params[:user_id])
     @project = @user.projects.find(params[:id])
-    render json: { project: @project }
+    render json: @project
   end
 
   def create
     @project = Project.new(project_params)
     if @project.save
-      render json: { status: 200, message: 'Project created succesfully', project: @project }
+      render json: @project
     else
       render json: { status: 204, errors: @project.errors.full_messages }
     end
@@ -28,6 +28,6 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def project_params
-    params.permit(:repo_link, :live_link, :picture, :description, :user_id)
+    params.permit(:repo_link, :live_link, :picture, :description, :name, :user_id)
   end
 end
