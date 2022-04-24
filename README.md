@@ -1,24 +1,16 @@
-# README
+# MV-Projects
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an unofficial selection of projects's backend side made by students in [Microverse](https://microverse.org). Live Demo of this project can be [seen here](https://ahangarha.github.io/MV-Projects/).
 
-Things you may want to cover:
 
-* Ruby version
+## How to Contribute
+Please read the [guideline](./CONTRIBUTING.md).
 
-* System dependencies
+## Run Locally
+```
+$ bundle install
+```
 
-* Configuration
+## License
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is Free/Libre and Open Source software under [AGPL-3.0+](./LICENSE) license.
